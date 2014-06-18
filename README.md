@@ -15,6 +15,7 @@
 foo()
 .timeout(100, function (defer) {
   defer.reject('foo timed out');
+  // probably run $scope.$apply here too
 })
 .then(function () {
   // foo has finished ok
@@ -40,7 +41,7 @@ add `ng-q-timeout` module as a dependency to your application
 
     angular.module('Example', ['ng-q-timeout'])
 
-## Limitation
+## Limitations
 
 Currently only the first promise returned by the `$q.defer()` is extended with `timeout` method.
 Thus always set timeout first, like the example above. This will NOT work
@@ -53,6 +54,9 @@ foo()
 });
 // throws an error, timeout should go before .then
 ```
+
+I am using `window.setTimeout` internally, which means the timeout callback happens outside
+the *$apply* loop. If you need to update the ui in the callback function, call `$scope.$apply` there.
 
 ### Small print
 
