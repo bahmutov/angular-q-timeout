@@ -9,6 +9,14 @@ describe('ng-q-timeout', function () {
     return defer.promise;
   }
 
+  function fooFail() {
+    var defer = q.defer();
+    setTimeout(function () {
+      defer.reject('failed');
+    }, 1000);
+    return defer.promise;
+  }
+
   beforeEach(function () {
     module('ng-q-timeout');
   });
@@ -111,7 +119,7 @@ describe('ng-q-timeout', function () {
     });
   });
 
-  it('does not run timeout callback if promise has already been rejectd', function () {
+  it('does not run timeout callback if promise has already been resolved', function () {
     var done;
 
     setTimeout(function () {
@@ -126,6 +134,29 @@ describe('ng-q-timeout', function () {
       expect(val).toEqual('ok');
     }, function () {
       throw new Error('Failed promise');
+    });
+
+    waitsFor(function () {
+      rootScope.$apply();
+      return done;
+    });
+  });
+
+  it('does not run timeout callback if promise has already been rejectd', function () {
+    var done;
+
+    setTimeout(function () {
+      done = true;
+    }, 2000);
+
+    fooFail()
+    .timeout(1500, function () {
+      throw new Error('Time out callback reached');
+    })
+    .then(function () {
+      throw new Error('Not failed!');
+    }, function (val) {
+      expect(val).toEqual('failed');
     });
 
     waitsFor(function () {
