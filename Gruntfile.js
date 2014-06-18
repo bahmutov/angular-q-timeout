@@ -80,5 +80,5 @@ module.exports = function (grunt) {
   plugins.forEach(grunt.loadNpmTasks);
 
   grunt.registerTask('test', ['karma', 'clean-console']);
-  grunt.registerTask('default', ['deps-ok', 'nice-package', 'sync', 'bower', 'jshint', 'test']);
+  grunt.registerTask('default', ['bower', 'deps-ok', 'nice-package', 'sync', 'jshint', 'test']);
 };
