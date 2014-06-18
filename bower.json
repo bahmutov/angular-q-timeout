@@ -16,13 +16,12 @@
   ],
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "keywords": [
-    "D3",
-    "helpers",
-    "utility",
-    "functional",
-    "callbacks",
-    "node",
-    "browser"
+    "angular",
+    "angularjs",
+    "q",
+    "$q",
+    "promise",
+    "timeout"
   ],
   "dependencies": {
     "angular": "~1.2.18"

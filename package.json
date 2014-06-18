@@ -9,7 +9,6 @@
   "dependencies": {},
   "devDependencies": {
     "coveralls": "^2.10.0",
-    "d3": "^3.4.4",
     "expect.js": "^0.3.1",
     "grunt": "^0.4.4",
     "grunt-banner": "^0.2.2",
@@ -41,16 +40,15 @@
   },
   "homepage": "https://github.com/bahmutov/angular-q-timeout",
   "keywords": [
-    "D3",
-    "helpers",
-    "utility",
-    "functional",
-    "callbacks",
-    "node",
-    "browser"
+    "angular",
+    "angularjs",
+    "q",
+    "$q",
+    "promise",
+    "timeout"
   ],
   "license": "MIT",
-  "main": "index.js",
+  "main": "ng-q-timeout.js",
   "pre-commit": [
     "npm test"
   ],
