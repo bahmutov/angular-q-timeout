@@ -31,6 +31,21 @@ module.exports = function (grunt) {
       }
     },
 
+    bower: {
+      install: {
+        options: {
+          layout: 'byComponent',
+          // if copy is false, will leave all downloaded files in bower_components
+          copy: false,
+          verbose: true,
+          cleanBowerDir: false,
+          bowerOptions: {
+            forceLatest: true
+          }
+        }
+      }
+    },
+
     'clean-console': {
       all: {
         options: {
@@ -65,5 +80,5 @@ module.exports = function (grunt) {
   plugins.forEach(grunt.loadNpmTasks);
 
   grunt.registerTask('test', ['karma', 'clean-console']);
-  grunt.registerTask('default', ['deps-ok', 'nice-package', 'sync', 'jshint', 'test']);
+  grunt.registerTask('default', ['deps-ok', 'nice-package', 'sync', 'bower', 'jshint', 'test']);
 };
