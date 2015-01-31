@@ -1,7 +1,7 @@
 {
   "name": "angular-q-timeout",
-  "main": "index.js",
-  "version": "0.1.0",
+  "main": "ng-q-timeout.js",
+  "version": "0.1.1",
   "homepage": "https://github.com/bahmutov/angular-q-timeout",
   "license": "MIT",
   "ignore": [

@@ -1,11 +1,12 @@
 {
   "name": "angular-q-timeout",
   "description": "Adds .timeout method to promises returned by $q service",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": {
     "url": "https://github.com/bahmutov/angular-q-timeout/issues"
   },
+  "contributors": [],
   "dependencies": {},
   "devDependencies": {
     "coveralls": "2.10.0",
@@ -49,7 +50,8 @@
   "license": "MIT",
   "main": "ng-q-timeout.js",
   "pre-commit": [
-    "npm test"
+    "npm test",
+    "npm version"
   ],
   "repository": {
     "type": "git",
