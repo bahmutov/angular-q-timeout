@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>$q timeout</title>
+    <script src="node_modules/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="ng-q-timeout.js"></script>
+  </head>
+  <body ng-app="Example">
+    <h1>angular-q-timeout</h1>
+    <script src="node_modules/console-log-div/console-log-div.js"></script>
+    <script>
+    angular.module('Example', ['ng-q-timeout'])
+    .run(function ($q) {
+      function foo() {
+        var defer = $q.defer();
+        setTimeout(function () {
+          console.log('resolving foo after 200ms, will be ignored');
+          defer.resolve('foo');
+        }, 200);
+        console.log('foo() is returning a promise');
+        return defer.promise;
+      }
+
+      console.log('starting foo, giving timeout of 100ms');
+      foo()
+      .timeout(100, function onTimeout(defer) {
+        console.log('promise timed out after 100ms! Good');
+        defer.reject('timed out');
+      })
+      .then(function onSuccess() {
+        console.error('promise has NOT timed out');
+        throw new Error('promise worked :(');
+      }, function onError(msg) {
+        console.log('promise timed out with message', msg);
+        console.assert(msg === 'timed out', 'hmm, wrong rejection');
+      });
+    });
+    </script>
+  </body>
+</html>
