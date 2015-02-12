@@ -73,6 +73,20 @@ module.exports = function (grunt) {
         files: ['*.js', 'test/*.js', 'index.html'],
         tasks: ['jshint', 'test']
       }
+    },
+
+    'gh-pages': {
+      options: {
+        base: '.'
+      },
+      src: [
+        'README.md',
+        'ng-q-timeout.js',
+        'index.html',
+        'node_modules/es5-shim/es5-shim.js',
+        'bower_components/angular/angular.js',
+        'node_modules/console-log-div/console-log-div.js'
+      ]
     }
   });
 
