@@ -2,7 +2,7 @@ angular.module('ng-q-timeout', [])
 .config(['$provide', function ($provide) {
   // I wish we could inject $timeout into config function
   // instead of using setTimeout directly.
-  $provide.decorator('$q', function decorateQ($delegate) {
+  $provide.decorator('$q', ['$delegate', function decorateQ($delegate) {
     var _defer = $delegate.defer;
 
     $delegate.defer = function () {
@@ -34,5 +34,5 @@ angular.module('ng-q-timeout', [])
       return deferred;
     };
     return $delegate;
-  });
+  }]);
 }]);
