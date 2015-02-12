@@ -2,6 +2,11 @@
 
 > Adds .timeout method to promises returned by Angular $q service
 
+[Demo](http://glebbahmutov.com/angular-q-timeout/),
+[Angular $q promises with timeouts blog post](http://bahmutov.calepin.co/angular-q-promises-with-timeouts.html)
+
+[![NPM][angular-q-timeout-icon] ][angular-q-timeout-url]
+
 [![Build status][angular-q-timeout-ci-image] ][angular-q-timeout-ci-url]
 [![Coverage Status][angular-q-timeout-coverage-image]][angular-q-timeout-coverage-url]
 [![dependencies][angular-q-timeout-dependencies-image] ][angular-q-timeout-dependencies-url]
